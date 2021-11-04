@@ -41,4 +41,4 @@ Every request that accepts API Key as `X-Api-Key` request header, also accepts t
 
 API key sent as part of the header has a higher priority in case you send the key using both request header and query parameter.
 ```# API Reference```
- ### Link to further [documentation] within Postman
+ ### Link to further [documentation](https://www.postman.com/technology-demo/workspace/integrations-nova-security-api/documentation/16952209-52e2d148-a474-47f2-b7b9-eef4f4ca3c30) within Postman
