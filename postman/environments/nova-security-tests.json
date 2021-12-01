@@ -1,0 +1,24 @@
+{
+	"id": "3016739a-d126-41b7-9ca8-b675722b1543",
+	"name": "NOVA Security Tests",
+	"values": [
+		{
+			"key": "adminId",
+			"value": "91347809",
+			"enabled": true
+		},
+		{
+			"key": "userId",
+			"value": "7893758",
+			"enabled": true
+		},
+		{
+			"key": "baseUrl",
+			"value": "https://8b536d6c-d850-465e-b3cb-2e336d3a1fa4.mock.pstmn.io",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-12-01T18:35:57.381Z",
+	"_postman_exported_using": "Postman/9.3.0-211129-1230"
+}
