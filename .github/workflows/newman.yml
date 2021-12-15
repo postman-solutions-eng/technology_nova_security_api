@@ -5,11 +5,6 @@ on:
     branches:
     - master
   workflow_dispatch:
-    inputs:
-      newman:
-        description: 'Run'
-        required: false
-        default: 'Run action'
 
 jobs:
   newman:
