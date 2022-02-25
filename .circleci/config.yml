@@ -1,0 +1,22 @@
+version: 2.1
+
+orbs:
+  newman: postman/newman@0.0.2
+
+jobs:
+  newman-collection-run:
+    executor: newman/postman-newman-docker
+    steps:
+      - checkout
+
+      - newman/newman-run:
+          collection: https://api.getpostman.com/collections/16901632-20802092-f357-441d-b80c-c0fdca3fc2e9?apikey=$POSTMAN_API_KEY
+          environment: https://api.getpostman.com/environments/16901632-3016739a-d126-41b7-9ca8-b675722b1543?apikey=$POSTMAN_API_KEY
+
+
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+workflows:
+  newman-workflow:
+    jobs:
+      - newman-collection-run
