@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: matt-ball/newman-action@master
         with:
-          collection: postman/collections/NOVA Security Tests_e438b0c3-97c2-46fa-b650-f154724258c8.json
+          collection: postman/collections/NOVASecurityTests_e438b0c3-97c2-46fa-b650-f154724258c8.json
           environment: postman/environments/nova-security-tests.json
 
 
