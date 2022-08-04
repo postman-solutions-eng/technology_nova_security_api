@@ -1,22 +1,19 @@
 version: 2.1
 
-orbs:
-  newman: postman/newman@0.0.2
+workflows:
+  run-collection-workflow:
+    jobs:
+      - newman-collection-run
 
 jobs:
   newman-collection-run:
-    executor: newman/postman-newman-docker
+    docker:
+      - image: node:16-alpine
     steps:
       - checkout
-
-      - newman/newman-run:
-          collection: https://api.getpostman.com/collections/16901632-20802092-f357-441d-b80c-c0fdca3fc2e9?apikey=$POSTMAN_API_KEY
-          environment: https://api.getpostman.com/environments/16901632-3016739a-d126-41b7-9ca8-b675722b1543?apikey=$POSTMAN_API_KEY
-
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  newman-workflow:
-    jobs:
-      - newman-collection-run
+      - run:
+          name: Install Newman and postman cloud reporter
+          command: npm install -g newman newman-reporter-postman-cloud
+      - run:
+          name: Run collection and upload results
+          command:  newman run "https://api.getpostman.com/collections/16901632-20802092-f357-441d-b80c-c0fdca3fc2e9?apikey=${POSTMAN_API_KEY}"  --environment "https://api.getpostman.com/environments/16901632-3016739a-d126-41b7-9ca8-b675722b1543?apikey=${POSTMAN_API_KEY}" -r postman-cloud --reporter-apiKey "${POSTMAN_API_KEY}" --reporter-workspaceId "ace339e5-0f4c-4c2c-88c7-3c6eb92d27e1" --reporter-integrationIdentifier "104622-${CIRCLE_WORKFLOW_JOB_ID}"
